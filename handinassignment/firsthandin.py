@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 data = pd.read_csv('./Highest Holywood Grossing Movies.csv', skiprows=0)
 print(data)
 
-# 1. 
+# (1.)
 # I will first collect and save the Disney Movies from the Distributor. 
 
 df = data[(data['Distributor'] == 'Walt Disney Studios Motion Pictures')]
@@ -31,3 +31,16 @@ df.loc[:,('World Sales (in $)')].astype('int')
 
 #From the converted Disney Movies data in int, I can now sort the the top 10 highest grossing Disney movies measured by world sales.
 print(df.sort_values('World Sales (in $)', ascending=False).head(10)[['World Sales (in $)']])
+    # Todo: type out number 1-10 
+
+
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# (2.)
+# Create a pie chart that shows the distribution of Licenses (PG, R, M and so on)
+# I will have to use the data from the csv file, but only collected the relevant data (Licenses).
+license = pd.Series(data['License'])   
+
+# I will use the License data in a pandaseries, so I can use it to count the value of the data, save it, sum it up and then be used in the pie chart.
+license_count = license.value_counts() 
+license_count.plot(kind='pie', autopct='%1.0f%%')
