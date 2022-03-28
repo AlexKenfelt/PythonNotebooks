@@ -49,23 +49,22 @@ print(df.sort_values('World Sales (in $)', ascending=False).head(10)[['World Sal
 
 # (3.)
 df1 = data[['License','Release Date']]
-# I add a column 'Year'
+# Taking realse date and spiltting it on ,  the new Year column 
+#df1[['Release Date', 'Year']] = df1['Release Date'].str.split(',', 1, expand=True) 
+#df1_filter = df1[(df1['Year'] >= " 2001") & (df1['Year'] < " 2015")]
 # normalize = true --> data_norm = (data - data.min())/ (data.max() - data.min())
-df1[['Release Date', 'Year']] = df1['Release Date'].str.split(',', 1, expand=True) 
-df1_filter = df1[(df1['Year'] >= " 2001") & (df1['Year'] < " 2015")]
-df1 = df1_filter['License'].value_counts(normalize=True).mul(100).round(1).astype(str) + '%'            
-print('PG = ' + df1.iloc[1]) 
+#df1 = df1_filter['License'].value_counts(normalize=True).mul(100).round(1).astype(str) + '%'            
+#print('PG = ' + df1.iloc[1]) 
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-# (4.)
-def cal_avg():
-    df1 = df_movies [['License','Release Date', 'Genre', 'World Sales (in $)']]
-    df2 = pd.DataFrame(data, colums = ['World Sales (in $)', 'Genre'])
-    df3 = df2['Genre'].str.get_dummies(sep="")
+# (4.) Calculate the average of world sales for each Genre and visualize the data with a bar chart 
+df2 = pd.DataFrame(data, columns= ['World Sales (in $)', 'Genre'])
+# I will try to use the function get dummies to see if I can find a match. Match 1  and 0 no match
+df3 = df2['Genre'].str.get_dummies(sep="'")
 
-    print(df2)
+print(df3)
 
 
 
