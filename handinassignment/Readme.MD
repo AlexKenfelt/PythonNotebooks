@@ -1,4 +1,4 @@
-Her er mit forslag til løsning på Frederik, Rasmus og Janus opgave. 
+Her er mit forslag til løsning på opgave 6. 
 
 Jeg fik ikke løst opgave 4 helt færdig, da jeg ikke fik lykkes med det. 
 
